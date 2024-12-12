@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://cex3bk0rlvitw"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_4x0mx"]
+[ext_resource type="Texture2D" uid="uid://c4oh1nh51dv5p" path="res://PRISM_menu.png" id="2_k5hsh"]
+[ext_resource type="FontFile" uid="uid://ihi5m2gpatgy" path="res://Squarebit2Px.ttf" id="2_mipbf"]
+[ext_resource type="Texture2D" uid="uid://t13c8creodg5" path="res://startbutton.png" id="4_nowv1"]
+[ext_resource type="Texture2D" uid="uid://c18y2njf41bf4" path="res://quitbutton.png" id="5_60xko"]
+
+[sub_resource type="Theme" id="Theme_tvjhl"]
+Button/fonts/font = ExtResource("2_mipbf")
+
+[sub_resource type="Theme" id="Theme_w4ywb"]
+Button/fonts/font = ExtResource("2_mipbf")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4x0mx")
+
+[node name="PrismMenu" type="Sprite2D" parent="."]
+position = Vector2(575, 327.5)
+scale = Vector2(0.55957, 0.568576)
+texture = ExtResource("2_k5hsh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -76.0
+offset_top = -148.0
+offset_right = 322.0
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.33, 0.33)
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_tvjhl")
+icon = ExtResource("4_nowv1")
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_w4ywb")
+icon = ExtResource("5_60xko")
+icon_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
